@@ -1,0 +1,5 @@
+check in the backend settings.py:
+
+CORS_HEADERS_ORIGINS = [
+    'http://localhost:5173/',
+]

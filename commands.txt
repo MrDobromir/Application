@@ -1,0 +1,26 @@
+mkdir backend
+cd backend	
+python -m pip install virtualenv
+python -m venv env
+env\Scripts\activate
+python -m pip install Django
+django-admin startproject backend .
+python manage.py startapp api
+python manage.py migrate
+python manage.py runserver <<<<<<< see if works
+
+npm create vite@latest
+
+cd frontend
+npm install
+npm run dev
+
+cd backend
+env\Scripts\activate
+python -m pip install django-cors-headers
+
+
+cd frontend	
+npm i react-router-dom
+npm install @mui/material @emotion/react @emotion/styled
+npm install @mui/icons-material
