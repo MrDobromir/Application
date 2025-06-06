@@ -1,136 +1,97 @@
 import * as React from 'react';
-import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Collapse from '@mui/material/Collapse';
-import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
-import ShowChartIcon from '@mui/icons-material/ShowChart';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
-import InventoryIcon from '@mui/icons-material/Inventory';
-import AssistantIcon from '@mui/icons-material/Assistant';
-import AddBoxIcon from '@mui/icons-material/AddBox';
 import { Link, useLocation } from 'react-router-dom';
+import SunnyIcon from '@mui/icons-material/Sunny';
+import WarehouseIcon from '@mui/icons-material/Warehouse';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import DescriptionIcon from '@mui/icons-material/Description';
+import SmartToyIcon from '@mui/icons-material/SmartToy';
+import ForestIcon from '@mui/icons-material/Forest';
+
 
 
 export default function Menu() {
-    const [demandReportingOpen, setDemandReportingOpen] = React.useState(true);
-    const [supplyReportingOpen, setSupplyReportingOpen] = React.useState(true);
-
+    const [demandReportingOpen, setDemandReportingOpen] = React.useState(false);
+    const [supplyReportingOpen, setSupplyReportingOpen] = React.useState(false);
+    
     const handleDemandReportingClick = () => {
         setDemandReportingOpen(!demandReportingOpen);
     };
-
+    
     const handleSupplyReportingClick = () => {
         setSupplyReportingOpen(!supplyReportingOpen);
     };
-
+    
     const location = useLocation();
     const pathname = location.pathname;
-
+    
     return (
         <>
             <List
-                sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+                sx={{ 
+                    width: '100%', 
+                    maxWidth: 360, 
+                    bgcolor: '#344955',
+                    '& .MuiListItemButton-root': {
+                        color: 'white',
+                        '&:hover': {
+                            backgroundColor: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        '&.Mui-selected': {
+                            backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                            '&:hover': {
+                                backgroundColor: 'rgba(255, 255, 255, 0.3)'
+                            }
+                        }
+                    },
+                    '& .MuiListItemText-primary': {
+                        color: 'white'
+                    }
+                }}
                 component="nav"
                 aria-labelledby="nested-list-subheader"
-                subheader={
-                    <ListSubheader component="div" id="nested-list-subheader">
-                        Demand Planning
-                    </ListSubheader>
-                }
             >
-                <ListItemButton component={Link} to="/forecasting" selected={pathname === '/forecasting'}>
+                <ListItemButton component={Link} to="/forecast" selected={pathname === '/forecast'}>
                     <ListItemIcon>
-                        <ShowChartIcon />
+                        <SunnyIcon sx={{ color: 'white' }} fontSize="large" />
                     </ListItemIcon>
-                    <ListItemText primary="Forecasting" />
+                    <ListItemText primary="Forecast" />
                 </ListItemButton>
-                <ListItemButton onClick={handleDemandReportingClick} component={Link} to="/demand-reporting" selected={pathname === '/demand-reporting'}>
+                <ListItemButton component={Link} to="/inventory" selected={pathname === '/inventory'}>
                     <ListItemIcon>
-                        <DashboardIcon />
+                        <WarehouseIcon sx={{ color: 'white' }} fontSize="large" />
                     </ListItemIcon>
-                    <ListItemText primary="Reporting" />
-                    {demandReportingOpen ? <ExpandLess /> : <ExpandMore />}
+                    <ListItemText primary="Inventory" />
                 </ListItemButton>
-                <Collapse in={demandReportingOpen} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
-                        <ListItemButton sx={{ pl: 4 }} component={Link} to='/demand-reporting-advanced' selected={pathname === '/demand-reporting-advanced'}>
-                            <ListItemIcon>
-                                <DashboardCustomizeIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Advanced" />
-                        </ListItemButton>
-                    </List>
-                </Collapse>
-            </List>
-            <List
-                sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-                component="nav"
-                aria-labelledby="nested-list-subheader"
-                subheader={
-                    <ListSubheader component="div" id="nested-list-subheader">
-                        Supply Planning
-                    </ListSubheader>
-                }
-            >
-                <ListItemButton component={Link} to="/planning-horizon" selected={pathname === '/planning-horizon'}>
+                <ListItemButton component={Link} to="/supply" selected={pathname === '/supply'}>
                     <ListItemIcon>
-                        <SwapHorizIcon />
+                        <LocalShippingIcon sx={{ color: 'white' }} fontSize="large" />
                     </ListItemIcon>
-                    <ListItemText primary="Planning Horizon" />
+                    <ListItemText primary="Supply" />
                 </ListItemButton>
-                <ListItemButton component={Link} to="/inventory-management" selected={pathname === '/inventory-management'}>
+                <ListItemButton component={Link} to="/reports" selected={pathname === '/reports'}>
                     <ListItemIcon>
-                        <InventoryIcon />
+                        <DescriptionIcon sx={{ color: 'white' }} fontSize="large" />
                     </ListItemIcon>
-                    <ListItemText primary="Inventory Management" />
+                    <ListItemText primary="Reports" />
                 </ListItemButton>
-                <ListItemButton component={Link} to="/proposals" selected={pathname === '/proposals'}>
+                <ListItemButton component={Link} to="/automations" selected={pathname === '/automations'}>
                     <ListItemIcon>
-                        <AssistantIcon />
+                        <SmartToyIcon sx={{ color: 'white' }} fontSize="large" />
                     </ListItemIcon>
-                    <ListItemText primary="Proposals" />
+                    <ListItemText primary="Automations" />
                 </ListItemButton>
-                <ListItemButton onClick={handleSupplyReportingClick} component={Link} to="/supply-reporting" selected={pathname === '/supply-reporting'}>
+                <ListItemButton component={Link} to="/sustainability" selected={pathname === '/sustainability'}>
                     <ListItemIcon>
-                        <DashboardIcon />
+                        <ForestIcon sx={{ color: 'white' }} fontSize="large" />
                     </ListItemIcon>
-                    <ListItemText primary="Reporting" />
-                    {supplyReportingOpen ? <ExpandLess /> : <ExpandMore />}
-                </ListItemButton>
-                <Collapse in={supplyReportingOpen} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
-                        <ListItemButton sx={{ pl: 4 }} component={Link} to='/supply-reporting-advanced' selected={pathname === '/supply-reporting-advanced'}>
-                            <ListItemIcon>
-                                <DashboardCustomizeIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Advanced" />
-                        </ListItemButton>
-                    </List>
-                </Collapse>
-            </List>
-            <List
-                sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-                component="nav"
-                aria-labelledby="nested-list-subheader"
-                subheader={
-                    <ListSubheader component="div" id="nested-list-subheader">
-                        Master Data
-                    </ListSubheader>
-                }
-            >
-                <ListItemButton component={Link} to="/create" selected={pathname === '/create'}>
-                    <ListItemIcon>
-                        <AddBoxIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Add" />
+                    <ListItemText primary="Sustainability" />
                 </ListItemButton>
             </List>
+
         </>
     );
 }

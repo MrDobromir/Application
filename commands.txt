@@ -1,3 +1,4 @@
+=== create a backend ===
 mkdir backend
 cd backend	
 python -m pip install virtualenv
@@ -9,11 +10,13 @@ python manage.py startapp api
 python manage.py migrate
 python manage.py runserver <<<<<<< see if works
 
+=== create a frontend ===
+
 npm create vite@latest
 
 cd frontend
 npm install
-npm run dev
+npm run dev <<<<<<< see if works
 
 cd backend
 env\Scripts\activate
@@ -24,3 +27,9 @@ cd frontend
 npm i react-router-dom
 npm install @mui/material @emotion/react @emotion/styled
 npm install @mui/icons-material
+
+=== install Axios to fetch data from backend to frontend ===
+cd frontend
+npm install axios
+
+

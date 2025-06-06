@@ -1,0 +1,126 @@
+.login-container {
+  min-height: 100vh;
+  background-color: #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.login-card {
+  background-color: #233034;
+  border-radius: 3.5rem 3.5rem 0 0;
+  padding: 2.5rem 2rem 0 2rem;
+  width: 100%;
+  max-width: 26rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  margin-bottom: 0;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-title {
+  font-size: 2.75rem;
+  font-weight: bold;
+  color: #f9aa33;
+  margin: 0 0 0.25rem 0;
+}
+
+.login-subtitle {
+  color: #f9aa33;
+  font-size: 1.5rem;
+  font-weight: normal;
+  margin: -0.75rem 0 0 0
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #354a55;
+  padding: 1.5rem 2rem;
+  border-radius: 1.5rem 1.5rem 0 0;
+  margin: 0 -2rem;
+}
+
+.login-input {
+  width: 100%;
+  background-color: #6b7c8a;
+  color: #ffffff;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.login-input::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
+
+.login-input:focus {
+  outline: 2px solid #f9aa33;
+  outline-offset: 2px;
+}
+
+.login-button {
+  width: 100%;
+  background-color: #e5e7eb;
+  color: #374151;
+  padding: 0.875rem;
+  border-radius: 0.375rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 0.5rem;
+}
+
+.login-button:hover:not(:disabled) {
+  background-color: #d1d5db;
+}
+
+.login-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 26rem;
+  margin-top: 0.5rem;
+}
+
+.remember-checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-left: 0.5rem;
+  accent-color: #f9aa33;
+}
+
+.remember-label {
+  color: #374151;
+  font-size: 0.9rem;
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.125rem
+}
+
+.error-message {
+  background-color: #ef4444;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}

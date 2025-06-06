@@ -3,3 +3,11 @@ check in the backend settings.py:
 CORS_HEADERS_ORIGINS = [
     'http://localhost:5173/',
 ]
+
+
+
+create superuser
+create other users
+add data display to the portal
+change url for admin
+overwrite default viewset functions to disable certain activities via api
